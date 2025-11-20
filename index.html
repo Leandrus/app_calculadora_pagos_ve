@@ -5,17 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Calculadora de Pagos VE</title>
 
-    <!-- --- PWA CONFIGURATION START --- -->
-    <!-- Indica al navegador que puede ser instalada (Android) -->
-    <link rel="manifest" href="manifest.json">
-    <!-- Define el color de la barra de título del navegador/estado de la app -->
-    <meta name="theme-color" content="#0f172a">
+    <!-- --- NUEVO FAVICON SVG EMBEDDED START: Ícono de Dinero/Cálculo Brillante --- -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg width='100%25' height='100%25' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='10' y='10' width='80' height='80' rx='18' fill='%230f172a'/%3E%3C!-- Fondo Oscuro --%3E%3Cpath d='M50 75 L50 25 M35 55 L65 55' stroke='%233b82f6' stroke-width='8' stroke-linecap='round'/%3E%3C!-- Cruz simple de cálculo o $ si fuera un símbolo --%3E%3Ccircle cx='50' cy='50' r='10' fill='%233b82f6'/%3E%3C!-- Un punto de énfasis --%3E%3Ctext x='50' y='55' text-anchor='middle' font-family='Inter, sans-serif' font-size='30' font-weight='bold' fill='%231e293b'%3E%24%3C/text%3E%3C!-- Oculto para que no se vea, pero es el concepto --%3E%3C/svg%3E" type="image/svg+xml">
+    <!-- --- FAVICON SVG EMBEDDED END --- -->
 
-    <!-- Configuraciones específicas para iOS (Apple) -->
+    <!-- --- PWA CONFIGURATION START --- -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0f172a">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="CalcVE">
-    <!-- En un entorno real, aquí se añadirían los enlaces a los iconos de iOS (ej: 180x180) -->
     <!-- --- PWA CONFIGURATION END --- -->
 
     <!-- Tailwind CSS -->
@@ -95,7 +94,7 @@
 
     <main class="w-full max-w-md space-y-4">
         
-        <!-- Header -->
+        <!-- Header sin el icono de la aplicación -->
         <header class="text-center mb-6">
             <h1 class="text-2xl font-bold text-blue-400">Calculadora de Pagos</h1>
             <p class="text-xs text-slate-400 mt-1">Ingresa tus tasas y compara costos automáticamente.</p>
@@ -106,7 +105,6 @@
             <!-- BCV (TASA OFICIAL - Verde) -->
             <div class="card p-3 flex flex-col justify-between relative group">
                 <div class="flex justify-between items-center">
-                    <!-- Título limpiado -->
                     <span class="text-xs font-semibold tracking-wider text-green-400">TASA OFICIAL</span>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-slate-500 opacity-50 group-hover:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
@@ -123,7 +121,6 @@
             <!-- USDT (TASA BINANCE - Amarillo) -->
             <div class="card p-3 flex flex-col justify-between relative group">
                 <div class="flex justify-between items-center">
-                    <!-- Título limpiado -->
                     <span class="text-xs font-semibold tracking-wider text-yellow-400">TASA BINANCE</span>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 text-slate-500 opacity-50 group-hover:opacity-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
@@ -146,7 +143,6 @@
         <!-- Tasa Promedio Calculada (Editable) -->
         <section class="card p-4 border-blue-500/30 shadow-[0_0_15px_rgba(59,130,246,0.1)]">
             <div class="flex justify-between items-center mb-2">
-                <!-- Título actualizado -->
                 <label for="avgRateInput" class="text-sm font-medium text-blue-300">Tasa Promedio</label>
                 <!-- FÓRMULA ACTUALIZADA -->
                 <span class="text-[10px] bg-blue-900/50 text-blue-200 px-2 py-1 rounded">Fórmula: ((BCV + P2P) / 2) + 10%</span>
@@ -166,8 +162,8 @@
             
             <!-- Opción 1: Conversión usando Tasa BCV (Precio de compra, pagando en Bolivares (BCV) - Verde) -->
             <div>
-                <!-- Título limpiado -->
-                <label class="block text-xs mb-1 ml-1 font-semibold text-green-400">Precio de compra, pagando en Bolivares (BCV)</label>
+                <!-- Título ajustado: Bolívares (Tasa Oficial) -> Bolívares -->
+                <label class="block text-xs mb-1 ml-1 font-semibold text-green-400">Precio de compra, pagando en Bolívares</label>
                 <div class="input-group">
                     <!-- Campo USD (Principal - Color verde) -->
                     <div class="relative">
@@ -186,7 +182,7 @@
 
             <!-- Opción 2: Conversión usando Tasa PROMEDIO (Precio de compra, pagando en Dolares Fisicos - Amarillo) -->
             <div>
-                <!-- Título limpiado -->
+                <!-- Título ajustado: Dólares Físicos (Promedio) -> Dólares Físicos -->
                 <label class="block text-xs mb-1 ml-1 font-semibold text-yellow-400">Precio de compra, pagando en Dolares Fisicos</label>
                 <div class="input-group">
                     <!-- Campo USD (Convertido con Promedio - Color amarillo) -->
@@ -357,8 +353,8 @@
             showLoaders(true);
             
             // Usar los valores cargados localmente (si existen) o fallbacks por defecto.
-            let bcvVal = parseFloat(els.bcvDisplay.value) || 36.50; 
-            let usdtVal = parseFloat(els.usdtDisplay.value) || 38.00; 
+            let bcvVal = parseFloat(els.bcvDisplay.value) || 0; 
+            let usdtVal = parseFloat(els.usdtDisplay.value) || 0; 
 
             const apiUrl = 'https://ve.dolarapi.com/v1/dolares'; 
 
@@ -533,7 +529,6 @@
             // Calculo de diferencias (siempre positivo)
             const diffVes = Math.abs(optionBcv_Ves - optionAvg_Ves);
             const diffUsd = Math.abs(optionBcv_Usd - optionAvg_Usd);
-            const minVes = Math.min(optionBcv_Ves, optionAvg_Ves);
             const maxVes = Math.max(optionBcv_Ves, optionAvg_Ves);
             const diffPerc = (maxVes > 0) ? (diffVes / maxVes) * 100 : 0;
             
@@ -549,18 +544,19 @@
                 const color = 'text-yellow-400';
                 box.classList.add('border-yellow-500', 'bg-yellow-900/20'); 
                 
-                // AJUSTE DE TEXTO 1
+                // AJUSTE DE TEXTO 1: "Dólares Físicos"
                 verdict.textContent = "Dólares Físicos"; 
                 verdict.classList.add('text-yellow-400');
                 
-                // AJUSTE DE TEXTO 2 (Flecha y sintaxis)
+                // AJUSTE DE TEXTO 2 (Frase modificada)
                 savings.innerHTML = `
                     **El costo es menor usando la Tasa Promedio**
                     <span class="text-xs block mt-1">
                         Ahorro Total: 
                         <span class="text-yellow-300">${vesFormat(diffVes)}</span>
-                        <br/>(aprox. <span class="${color}">$ ${usdFormatNoSymbol(diffUsd)}</span>) 
-                        <span class="font-bold">→</span>
+                        <br/> <!-- Salto de línea solicitado -->
+                        (aprox. <span class="${color}">$ ${usdFormatNoSymbol(diffUsd)}</span>) 
+                        <span class="text-slate-300 font-bold">→</span> <!-- Flecha color neutral -->
                         <span class="${color} text-xs"> ${percFormat(diffPerc)}% menos</span>.
                     </span>
                     <span class="text-[10px] block mt-1">
@@ -572,18 +568,19 @@
                 const color = 'text-green-400';
                 box.classList.add('border-green-500', 'bg-green-900/20'); 
                 
-                // AJUSTE DE TEXTO 1
+                // AJUSTE DE TEXTO 1: "Bolívares"
                 verdict.textContent = "Bolívares";
                 verdict.classList.add('text-green-400');
                 
-                // AJUSTE DE TEXTO 2 (Flecha y sintaxis)
+                // AJUSTE DE TEXTO 2 (Frase modificada)
                 savings.innerHTML = `
                     **El costo es menor usando la Tasa Oficial**
                     <span class="text-xs block mt-1">
                         Ahorro Total: 
                         <span class="text-green-300">${vesFormat(diffVes)}</span>
-                        <br/>(aprox. <span class="${color}">$ ${usdFormatNoSymbol(diffUsd)}</span>) 
-                        <span class="font-bold">→</span>
+                        <br/> <!-- Salto de línea solicitado -->
+                        (aprox. <span class="${color}">$ ${usdFormatNoSymbol(diffUsd)}</span>) 
+                        <span class="text-slate-300 font-bold">→</span> <!-- Flecha color neutral -->
                         <span class="${color} text-xs"> ${percFormat(diffPerc)}% menos</span>.
                     </span>
                      <span class="text-[10px] block mt-1">
