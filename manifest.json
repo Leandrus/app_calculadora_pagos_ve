@@ -1,23 +1,27 @@
 {
-  "name": "Calculadora de Pagos en Venezuela",
+  "name": "¿Como Pago en Venezuela?",
   "short_name": "¿Como Pago?",
-  "description": "Calculadora de pagos según conversión de tasas de Dólares en Venezuela.",
-  "start_url": "./index.html",
+  "description": "Calculadora de comparación de precios y tasas BCV/USDT para Venezuela.",
+  "start_url": "./",
   "display": "standalone",
-  "orientation": "portrait",
   "background_color": "#0f172a",
-  "theme_color": "#3b82f6",
+  "theme_color": "#0f172a",
   "icons": [
     {
-      "src": "placeholder_icon_192.png",
+      "src": "/icons/icon-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "placeholder_icon_512.png",
+      "src": "/icons/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
-  ],
-  "prefer_related_applications": false
+  ]
 }
